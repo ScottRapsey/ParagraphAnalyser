@@ -34,18 +34,20 @@ namespace ParagraphAnalyser
 
     internal static class ParagraphAnalyser
     {
+        //our word seperators are provided in the spec, so no need to allow a user to enter them
         private static readonly char[] wordSeperators = new[] { ' ' };
+        //our sentence seperators are provided in the spec, so no need to allow a user to enter them
         private static readonly char[] sentenceSeperators = new[] { '.', '?', '!' };
 
         internal static IEnumerable<IGrouping<char, string>> GetSentencesGroupedBySeperators(
             string paragraph, 
-            bool ignoreCase = true)
+            bool ignoreCase = true) //no mention in the spec of whether this should be case sensitive or not, so make it an option
         {
             return GetItemsGroupedBySeperators(paragraph, sentenceSeperators, ignoreCase);
         }
         internal static IEnumerable<IGrouping<char, string>> GetWordsGroupedBySeperators(
             string paragraph, 
-            bool ignoreCase = true)
+            bool ignoreCase = true) //no mention in the spec of whether this should be case sensitive or not
         {
             return GetItemsGroupedBySeperators(paragraph, wordSeperators, ignoreCase);
         }
@@ -63,7 +65,7 @@ namespace ParagraphAnalyser
             //clean up a bit, make sure we don't have any leading or trailing spaces
             eachItem = eachItem.Select(i => i.Trim());
 
-            //if this method gets called a lot, move this to a private module level field
+            //if this method gets called a lot, move both charComparers to a private module level fields and access the correct one as required rather than instantiting a new one each time
             IEqualityComparer<char> charComparer = null;
             if (ignoreCase)
                 charComparer = new CharComparerCurrentCultureIgnoreCase();

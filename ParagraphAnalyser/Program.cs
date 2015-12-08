@@ -59,21 +59,6 @@ namespace ParagraphAnalyser
             Console.ReadLine();
 
             //return exitCode;
-
-            //var text = "This is a paragraph. A sentence? another? Another!  2 spaces. now another sentence. wow! This was a paragraph";
-            //var groupedSentences = ParagraphAnalyser.GetSentencesGroupedBySeperators(text, ignoreCase: false);
-            //var groupedWords = ParagraphAnalyser.GetWordsGroupedBySeperators(text);
-
-            //var charsWeCareAboutForWords = new[] { 'r', 'e', 'g', 'i', 's', 't' };
-            //var wordOutput = OutputGenerator.GetOutputStringForWords(groupedWords, charsWeCareAboutForWords, ignoreCase: true, includeOther: true);
-            //Console.WriteLine(wordOutput);
-
-            //var charsWeCareAboutForSentences = new[] { 'n', 'o', 'w' };
-            //var paragraphOutput = OutputGenerator.GetOutputStringForSentences(groupedSentences, charsWeCareAboutForSentences, ignoreCase: true, includeOther: true);
-            //Console.WriteLine(paragraphOutput);
-
-            //Console.WriteLine("Press any key to exit");
-            //Console.ReadLine();
         }
 
         private static void AnalyseAndOutput(string paragraph, char[] charsWeCareAboutForWords, char[] charsWeCareAboutForSentences)

@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace ParagraphAnalyser
 {
-    /// These aren't super efficent, but they work
-    /// If we wanted super fast, unreadable and unmaintainable we'd be using regular expressions anyway
+    // These aren't super efficent, but they work
+    // If we wanted super fast, unreadable and unmaintainable we'd be using regular expressions anyway
+    // these are a good happy medium
 
     internal class CharComparerCurrentCultureIgnoreCase : IEqualityComparer<char>
     {
@@ -17,12 +18,18 @@ namespace ParagraphAnalyser
         public bool Equals(char x, char y)
         {
             //char is a struct, so no need to null check
+            
+            //this is pretty self explanitory 
+            //convert each char to a string and use the string comparer to do the comparison
             return CurrentCultureIgnoreCaseStringComparer.Equals(x.ToString(), y.ToString());
         }
 
         public int GetHashCode(char obj)
         {
             //char is a struct, so no need to null check
+
+            //this is pretty self explanitory 
+            //convert the char to a string and use the string comparer to do the hashing
             return CurrentCultureIgnoreCaseStringComparer.GetHashCode(obj.ToString());
         }
     }
@@ -34,12 +41,18 @@ namespace ParagraphAnalyser
         public bool Equals(char x, char y)
         {
             //char is a struct, so no need to null check
+
+            //this is pretty self explanitory 
+            //convert each char to a string and use the string comparer to do the comparison
             return CurrentCultureStringComparer.Equals(x.ToString(), y.ToString());
         }
 
         public int GetHashCode(char obj)
         {
             //char is a struct, so no need to null check
+
+            //this is pretty self explanitory 
+            //convert the char to a string and use the string comparer to do the hashing
             return CurrentCultureStringComparer.GetHashCode(obj.ToString());
         }
     }
