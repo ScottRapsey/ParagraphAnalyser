@@ -10,7 +10,7 @@ namespace ParagraphAnalyser
     // If we wanted super fast, unreadable and unmaintainable we'd be using regular expressions anyway
     // these are a good happy medium
 
-    internal class CharComparerCurrentCultureIgnoreCase : IEqualityComparer<char>
+    public class CharComparerCurrentCultureIgnoreCase : IEqualityComparer<char>
     {
         //assume we're comparing user generated data, so they will care about their current culture
         //if the data is more machine generated, or the source is more well known, use StringComparer.OrdinalIgnoreCase instead
@@ -33,7 +33,7 @@ namespace ParagraphAnalyser
             return CurrentCultureIgnoreCaseStringComparer.GetHashCode(obj.ToString());
         }
     }
-    internal class CharComparerCurrentCulture : IEqualityComparer<char>
+    public class CharComparerCurrentCulture : IEqualityComparer<char>
     {
         //assume we're comparing user generated data, so they will care about their current culture
         //if the data is more machine generated, or the source is more well known, use StringComparer.OrdinalIgnoreCase instead

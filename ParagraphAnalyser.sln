@@ -3,14 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParagraphAnalyser", "ParagraphAnalyser\ParagraphAnalyser.csproj", "{82A726C4-4FB3-475B-8FA5-B49D1EAD5774}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParagraphAnalyser.Console", "ParagraphAnalyser\ParagraphAnalyser.Console.csproj", "{82A726C4-4FB3-475B-8FA5-B49D1EAD5774}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParagraphAnalyserTests", "ParagraphAnalyserTests\ParagraphAnalyserTests.csproj", "{B836ED28-4661-4065-919B-CC91B3F4BDEC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParagraphAnalyser.Console.Test", "ParagraphAnalyserTests\ParagraphAnalyser.Console.Test.csproj", "{B836ED28-4661-4065-919B-CC91B3F4BDEC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{46A18072-1CF5-4895-B332-CCCD4E51604F}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParagraphAnalyser.Core", "ParagraphAnalyser.Core\ParagraphAnalyser.Core.csproj", "{5544CD35-78A3-4643-9928-51E092FCEB08}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParagraphAnalyser.Core.Test", "ParagraphAnalyser.Core.Test\ParagraphAnalyser.Core.Test.csproj", "{031EFDC6-24B9-4617-8DE6-50A2403F2CA8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +30,14 @@ Global
 		{B836ED28-4661-4065-919B-CC91B3F4BDEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B836ED28-4661-4065-919B-CC91B3F4BDEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B836ED28-4661-4065-919B-CC91B3F4BDEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5544CD35-78A3-4643-9928-51E092FCEB08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5544CD35-78A3-4643-9928-51E092FCEB08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5544CD35-78A3-4643-9928-51E092FCEB08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5544CD35-78A3-4643-9928-51E092FCEB08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{031EFDC6-24B9-4617-8DE6-50A2403F2CA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{031EFDC6-24B9-4617-8DE6-50A2403F2CA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{031EFDC6-24B9-4617-8DE6-50A2403F2CA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{031EFDC6-24B9-4617-8DE6-50A2403F2CA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ParagraphAnalyser
+namespace ParagraphAnalyser.Core
 {
     //    4.	Write code to analyse a paragraph of written text.The function should count the number of words and paragraphs that start with certain characters.You can assume the following.
     //      a.All sentences end with one of the following three characters: 
@@ -32,28 +32,28 @@ namespace ParagraphAnalyser
     //  Other (i.e. not n, o, or w)	
     //  Total	
 
-    internal static class ParagraphAnalyser
+    public static class Analyser
     {
         //our word seperators are provided in the spec, so no need to allow a user to enter them
         private static readonly char[] wordSeperators = new[] { ' ' };
         //our sentence seperators are provided in the spec, so no need to allow a user to enter them
         private static readonly char[] sentenceSeperators = new[] { '.', '?', '!' };
 
-        internal static IEnumerable<IGrouping<char, string>> GetSentencesGroupedBySeperators(
-            string paragraph, 
+        public static IEnumerable<IGrouping<char, string>> GetSentencesGroupedBySeperators(
+            string paragraph,
             bool ignoreCase = true) //no mention in the spec of whether this should be case sensitive or not, so make it an option
         {
             return GetItemsGroupedBySeperators(paragraph, sentenceSeperators, ignoreCase);
         }
-        internal static IEnumerable<IGrouping<char, string>> GetWordsGroupedBySeperators(
-            string paragraph, 
+        public static IEnumerable<IGrouping<char, string>> GetWordsGroupedBySeperators(
+            string paragraph,
             bool ignoreCase = true) //no mention in the spec of whether this should be case sensitive or not
         {
             return GetItemsGroupedBySeperators(paragraph, wordSeperators, ignoreCase);
         }
         private static IEnumerable<IGrouping<char, string>> GetItemsGroupedBySeperators(
-            string paragraph, 
-            char[] seperators, 
+            string paragraph,
+            char[] seperators,
             bool ignoreCase)
         {
             //when processing sentences, this will return the last sentence wether it ends in a "." a "?" or a "!", 

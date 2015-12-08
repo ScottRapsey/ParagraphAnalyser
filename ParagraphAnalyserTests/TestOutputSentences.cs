@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ParagraphAnalyser.Core;
 
 namespace ParagraphAnalyserTests
 {
@@ -11,7 +12,7 @@ namespace ParagraphAnalyserTests
         [TestMethod]
         public void TwoWordsWithMatch()
         {
-            var groupedSentences = ParagraphAnalyser.ParagraphAnalyser.GetSentencesGroupedBySeperators("Aaaa. Abbb.");
+            var groupedSentences = Analyser.GetSentencesGroupedBySeperators("Aaaa. Abbb.");
             Assert.AreEqual(1, groupedSentences.Count());
             Assert.AreEqual('A', groupedSentences.First().Key);
             Assert.AreEqual(2, groupedSentences.First().Count());
@@ -31,7 +32,7 @@ namespace ParagraphAnalyserTests
         [TestMethod]
         public void TwoWordsWithMatchIncludeOther()
         {
-            var groupedSentences = ParagraphAnalyser.ParagraphAnalyser.GetSentencesGroupedBySeperators("Aa. Ab.");
+            var groupedSentences = Analyser.GetSentencesGroupedBySeperators("Aa. Ab.");
             Assert.AreEqual(1, groupedSentences.Count());
             Assert.AreEqual('A', groupedSentences.First().Key);
             Assert.AreEqual(2, groupedSentences.First().Count());
@@ -45,7 +46,7 @@ namespace ParagraphAnalyserTests
         [TestMethod]
         public void TwoWordsWithNoMatch()
         {
-            var groupedSentences = ParagraphAnalyser.ParagraphAnalyser.GetSentencesGroupedBySeperators("Aaa. abbb.");
+            var groupedSentences = Analyser.GetSentencesGroupedBySeperators("Aaa. abbb.");
             Assert.AreEqual(1, groupedSentences.Count());
             Assert.AreEqual('A', groupedSentences.First().Key);
             Assert.AreEqual(2, groupedSentences.First().Count());
@@ -58,7 +59,7 @@ namespace ParagraphAnalyserTests
         [TestMethod]
         public void TwoWordsWithNoMatchIncludeOther()
         {
-            var groupedSentences = ParagraphAnalyser.ParagraphAnalyser.GetSentencesGroupedBySeperators("Aaaa. Aaaaa.");
+            var groupedSentences = Analyser.GetSentencesGroupedBySeperators("Aaaa. Aaaaa.");
             Assert.AreEqual(1, groupedSentences.Count());
             Assert.AreEqual('A', groupedSentences.First().Key);
             Assert.AreEqual(2, groupedSentences.First().Count());
@@ -73,7 +74,7 @@ namespace ParagraphAnalyserTests
         public void TestFromSpecIncludeOther()
         {
             var text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque rhoncus magna eu ullamcorper consectetur. Nulla facilisi. Sed lobortis facilisis felis, ac tincidunt turpis porttitor eget. Suspendisse laoreet finibus turpis ut molestie. In eget lacus sit amet metus efficitur fermentum sit amet ut risus. Donec eget laoreet purus, finibus ornare felis. Maecenas dictum mauris magna, sit amet euismod nisl dignissim quis. Duis ante nunc, laoreet nec posuere vel, mollis sit amet massa. Donec elit massa, gravida at diam id, tristique blandit libero. Curabitur mattis sapien turpis, non bibendum eros lobortis eu. Praesent sed turpis urna.";
-            var groupedSentences = ParagraphAnalyser.ParagraphAnalyser.GetSentencesGroupedBySeperators(text);
+            var groupedSentences = Analyser.GetSentencesGroupedBySeperators(text);
             Assert.AreEqual(8, groupedSentences.Count());
             Assert.AreEqual('L', groupedSentences.First().Key);
             Assert.AreEqual(1, groupedSentences.First().Count());
@@ -88,7 +89,7 @@ namespace ParagraphAnalyserTests
         public void TestFromSpecDontIncludeOther()
         {
             var text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque rhoncus magna eu ullamcorper consectetur. Nulla facilisi. Sed lobortis facilisis felis, ac tincidunt turpis porttitor eget. Suspendisse laoreet finibus turpis ut molestie. In eget lacus sit amet metus efficitur fermentum sit amet ut risus. Donec eget laoreet purus, finibus ornare felis. Maecenas dictum mauris magna, sit amet euismod nisl dignissim quis. Duis ante nunc, laoreet nec posuere vel, mollis sit amet massa. Donec elit massa, gravida at diam id, tristique blandit libero. Curabitur mattis sapien turpis, non bibendum eros lobortis eu. Praesent sed turpis urna.";
-            var groupedSentences = ParagraphAnalyser.ParagraphAnalyser.GetSentencesGroupedBySeperators(text);
+            var groupedSentences = Analyser.GetSentencesGroupedBySeperators(text);
             Assert.AreEqual(8, groupedSentences.Count());
             Assert.AreEqual('L', groupedSentences.First().Key);
             Assert.AreEqual(1, groupedSentences.First().Count());

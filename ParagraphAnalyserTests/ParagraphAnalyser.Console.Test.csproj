@@ -52,16 +52,18 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="TestAnalyserSentences.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestAnalyserWords.cs" />
     <Compile Include="TestOutputWords.cs" />
     <Compile Include="TestOutputSentences.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ParagraphAnalyser\ParagraphAnalyser.csproj">
+    <ProjectReference Include="..\ParagraphAnalyser.Core\ParagraphAnalyser.Core.csproj">
+      <Project>{5544cd35-78a3-4643-9928-51e092fceb08}</Project>
+      <Name>ParagraphAnalyser.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ParagraphAnalyser\ParagraphAnalyser.Console.csproj">
       <Project>{82a726c4-4fb3-475b-8fa5-b49d1ead5774}</Project>
-      <Name>ParagraphAnalyser</Name>
+      <Name>ParagraphAnalyser.Console</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ParagraphAnalyser.Core;
 
 namespace ParagraphAnalyser
 {
@@ -63,8 +64,8 @@ namespace ParagraphAnalyser
 
         private static void AnalyseAndOutput(string paragraph, char[] charsWeCareAboutForWords, char[] charsWeCareAboutForSentences)
         {
-            var groupedSentences = ParagraphAnalyser.GetSentencesGroupedBySeperators(paragraph, ignoreCase: false);
-            var groupedWords = ParagraphAnalyser.GetWordsGroupedBySeperators(paragraph);
+            var groupedSentences = Analyser.GetSentencesGroupedBySeperators(paragraph, ignoreCase: false);
+            var groupedWords = Analyser.GetWordsGroupedBySeperators(paragraph);
 
 
             var wordOutput = OutputGenerator.GetOutputStringForWords(groupedWords, charsWeCareAboutForWords, ignoreCase: true, includeOther: true);
