@@ -7,9 +7,9 @@ Write code to analyse a paragraph of written text.
 The function should count the number of words and paragraphs that start with certain characters.  
 You can assume the following.  
 1. All sentences end with one of the following three characters:  
-    i.   .
-    ii.  ?
-    iii. !
+  1. .
+  2. ?
+  3. !
 2. All words are separated by a single space character  
     
 Example output:  
@@ -17,19 +17,19 @@ Example output:
 **Words**  
 Letter | Quantity
 ------ | ---------
-r | 
-e | 
-g | 
-i | 
-s | 
-t | 
-Total | 
+r | x
+e | x
+g | x
+i | x
+s | x
+t | x
+Total | x
 
 **Sentences**  
 Letter | Quantity
 ------ | ---------
-n | 
-o | 
-w | 
-Other (i.e. not n, o, or w)| 
-Total | 
+n | x
+o | x
+w | x
+Other (i.e. not n, o, or w)| x
+Total | x
