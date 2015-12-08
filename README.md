@@ -7,10 +7,10 @@ Write code to analyse a paragraph of written text.
 The function should count the number of words and paragraphs that start with certain characters.  
 You can assume the following.  
 1. All sentences end with one of the following three characters:  
-  1. "."  
+  2. "."  
   2. "?"  
-  3. "!"  
-2. All words are separated by a single space character  
+  2. "!"  
+1. All words are separated by a single space character  
   
 Example output:  
     
@@ -30,8 +30,8 @@ Example output:
 
 | Letter | Quantity |
 | ------ | --------- |
-| n | x |
-| o | x |
-| w | x |
-| Other (i.e. not n, o, or w)| x |
-| Total | x |
+| n | |
+| o | |
+| w | |
+| Other (i.e. not n, o, or w)| |
+| Total | |
