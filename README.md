@@ -12,20 +12,22 @@ b.All words are separated by a single space character
     
 Example output:
     
-Words
-Letter  Quantity
-r
-e
-g
-i
-s
-t
-Total
+*Words*
+Letter | Quantity
+-------|----------
+r | 
+e | 
+g | 
+i | 
+s | 
+t | 
+Total | 
 
-Sentences
-Letter	Quantity
-n	
-o	
-w	
-Other (i.e. not n, o, or w)	
-Total	
+*Sentences*
+Letter | Quantity
+-------|----------
+n | 
+o | 
+w | 
+Other (i.e. not n, o, or w)| 
+Total | 
