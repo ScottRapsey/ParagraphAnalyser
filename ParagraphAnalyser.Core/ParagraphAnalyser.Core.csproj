@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EqualityComparers.cs" />
+    <Compile Include="Model.cs" />
     <Compile Include="ParagraphAnalyser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ParagraphAnalyser
+namespace ParagraphAnalyser.Core
 {
     // These aren't super efficent, but they work
     // If we wanted super fast, unreadable and unmaintainable we'd be using regular expressions anyway

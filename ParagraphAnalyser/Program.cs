@@ -64,14 +64,14 @@ namespace ParagraphAnalyser
 
         private static void AnalyseAndOutput(string paragraph, char[] charsWeCareAboutForWords, char[] charsWeCareAboutForSentences)
         {
-            var groupedSentences = Analyser.GetSentencesGroupedBySeperators(paragraph, ignoreCase: false);
-            var groupedWords = Analyser.GetWordsGroupedBySeperators(paragraph);
+            var groupedSentences = Analyser.GetSentencesGroupedByFirstChars(paragraph, charsWeCareAboutForSentences, ignoreCase:true);
+            var groupedWords = Analyser.GetWordsGroupedByFirstChars(paragraph, charsWeCareAboutForWords, ignoreCase: true);
 
 
-            var wordOutput = OutputGenerator.GetOutputStringForWords(groupedWords, charsWeCareAboutForWords, ignoreCase: true, includeOther: true);
+            var wordOutput = OutputGenerator.GetOutputStringForWords(groupedWords, includeOther: true);
             Console.WriteLine(wordOutput);
 
-            var paragraphOutput = OutputGenerator.GetOutputStringForSentences(groupedSentences, charsWeCareAboutForSentences, ignoreCase: true, includeOther: true);
+            var paragraphOutput = OutputGenerator.GetOutputStringForSentences(groupedSentences, includeOther: true);
             Console.WriteLine(paragraphOutput);
         }
 

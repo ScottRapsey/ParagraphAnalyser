@@ -39,19 +39,36 @@ namespace ParagraphAnalyser.Core
         //our sentence seperators are provided in the spec, so no need to allow a user to enter them
         private static readonly char[] sentenceSeperators = new[] { '.', '?', '!' };
 
-        public static IEnumerable<IGrouping<char, string>> GetSentencesGroupedBySeperators(
+        public static GroupedFirstCharModel GetSentencesGroupedByFirstChars(
+            string paragraph,
+            IEnumerable<char> charsWeCareAbout,
+            bool ignoreCase)
+        {
+            var groupedSentences = GetSentencesGroupedByFirstChars(paragraph, ignoreCase);
+            return GetGroupedFirstCharModel(groupedSentences, charsWeCareAbout, ignoreCase);
+        }
+        public static GroupedFirstCharModel GetWordsGroupedByFirstChars(
+            string paragraph,
+            IEnumerable<char> charsWeCareAbout,
+            bool ignoreCase)
+        {
+            var groupedWords = GetWordsGroupedByFirstChars(paragraph, ignoreCase);
+            return GetGroupedFirstCharModel(groupedWords, charsWeCareAbout, ignoreCase);
+        }
+
+        internal static IEnumerable<IGrouping<char, string>> GetSentencesGroupedByFirstChars(
             string paragraph,
             bool ignoreCase = true) //no mention in the spec of whether this should be case sensitive or not, so make it an option
         {
-            return GetItemsGroupedBySeperators(paragraph, sentenceSeperators, ignoreCase);
+            return GetItemsGroupedByFirstChars(paragraph, sentenceSeperators, ignoreCase);
         }
-        public static IEnumerable<IGrouping<char, string>> GetWordsGroupedBySeperators(
+        internal static IEnumerable<IGrouping<char, string>> GetWordsGroupedByFirstChars(
             string paragraph,
             bool ignoreCase = true) //no mention in the spec of whether this should be case sensitive or not
         {
-            return GetItemsGroupedBySeperators(paragraph, wordSeperators, ignoreCase);
+            return GetItemsGroupedByFirstChars(paragraph, wordSeperators, ignoreCase);
         }
-        private static IEnumerable<IGrouping<char, string>> GetItemsGroupedBySeperators(
+        private static IEnumerable<IGrouping<char, string>> GetItemsGroupedByFirstChars(
             string paragraph,
             char[] seperators,
             bool ignoreCase)
@@ -75,5 +92,48 @@ namespace ParagraphAnalyser.Core
             //groupby the first character and return the result
             return eachItem.GroupBy(i => i.First(), comparer: charComparer);
         }
-    }
+
+
+
+        internal static GroupedFirstCharModel GetGroupedFirstCharModel(
+            IEnumerable<IGrouping<char, string>> groupedWords,
+            IEnumerable<char> charsWeCareAbout,
+            bool ignoreCase)
+        {
+            var result = new GroupedFirstCharModel() { CharsWeCareAbout = charsWeCareAbout.ToList() };
+
+            //if this method gets called a lot, move this to a private module level field
+            IEqualityComparer<char> charComparer = null;
+            if (ignoreCase)
+                charComparer = new CharComparerCurrentCultureIgnoreCase();
+            else
+                charComparer = new CharComparerCurrentCulture();
+
+            foreach (var item in charsWeCareAbout)
+            {
+                var group = groupedWords.FirstOrDefault(i => charComparer.Equals(i.Key, item));
+                var firstCharSet = new FirstCharModel()
+                {
+                    FirstChar = item,
+                    Items = (group == null) ? new List<string>() : group.ToList(),
+                    Matched = true
+                };
+                result.AllFirstCharItems.Add(firstCharSet);
+            }
+
+            //Loop throught the remaining sentences/words that were discovered, but don't match a char we care about
+            //and add them 
+            foreach (var item in groupedWords.Where(i => !charsWeCareAbout.Contains(i.Key, charComparer)))
+            {
+                var firstCharSet = new FirstCharModel()
+                {
+                    FirstChar = item.Key,
+                    Items = item.ToList(),
+                    Matched = false
+                };
+                result.AllFirstCharItems.Add(firstCharSet);
+            }
+            return result;
+        }
+    }  
 }
