@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParagraphAnalyser.Core", "P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParagraphAnalyser.Core.Test", "ParagraphAnalyser.Core.Test\ParagraphAnalyser.Core.Test.csproj", "{031EFDC6-24B9-4617-8DE6-50A2403F2CA8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParagraphAnalyser.Web", "ParagraphAnalyser.Web\ParagraphAnalyser.Web.csproj", "{D375587C-7958-468C-BEDC-ECF30ECB2B2D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,10 @@ Global
 		{031EFDC6-24B9-4617-8DE6-50A2403F2CA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{031EFDC6-24B9-4617-8DE6-50A2403F2CA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{031EFDC6-24B9-4617-8DE6-50A2403F2CA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D375587C-7958-468C-BEDC-ECF30ECB2B2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D375587C-7958-468C-BEDC-ECF30ECB2B2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D375587C-7958-468C-BEDC-ECF30ECB2B2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D375587C-7958-468C-BEDC-ECF30ECB2B2D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

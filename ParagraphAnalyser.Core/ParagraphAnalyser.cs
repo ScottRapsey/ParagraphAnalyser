@@ -39,6 +39,18 @@ namespace ParagraphAnalyser.Core
         //our sentence seperators are provided in the spec, so no need to allow a user to enter them
         private static readonly char[] sentenceSeperators = new[] { '.', '?', '!' };
 
+        public static AnalyseResultModel AnalyseParagraph(
+            string paragraph,
+            IEnumerable<char> sentenceCharsWeCareAbout,
+            IEnumerable<char> wordCharsWeCareAbout,
+            bool ignoreCase)
+        {
+            return new AnalyseResultModel()
+            {
+                SentenceGroupedData = GetSentencesGroupedByFirstChars(paragraph, sentenceCharsWeCareAbout, ignoreCase),
+                WordGroupedData = GetWordsGroupedByFirstChars(paragraph, wordCharsWeCareAbout, ignoreCase)
+            };
+        }
         public static GroupedFirstCharModel GetSentencesGroupedByFirstChars(
             string paragraph,
             IEnumerable<char> charsWeCareAbout,
@@ -135,5 +147,5 @@ namespace ParagraphAnalyser.Core
             }
             return result;
         }
-    }  
+    }
 }

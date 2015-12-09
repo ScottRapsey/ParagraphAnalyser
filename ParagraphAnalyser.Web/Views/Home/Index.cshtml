@@ -1,0 +1,26 @@
+﻿
+<div class="jumbotron">
+    <h1>Paragraph Analyser</h1>
+    <p class="lead">Analyse a paragraph of text</p>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        @using (Html.BeginForm("Results", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+        <p class="lead">Enter comma delimited chars for Words</p>
+        <textarea id="charsForWords" name="charsForWords" style="min-width: 100%">r,e,g,i,s,t,e,r</textarea>
+        <p class="lead">Enter comma delimited chars for Sentences</p>
+        <textarea id="charsForSentences" name="charsForSentences" style="min-width: 100%">n,o,w</textarea>
+        <p class="lead">Enter paragraph to analyse</p>
+        <textarea id="paragraph" name="paragraph" style="min-width: 100%">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at ipsum sapien. Ut risus libero, volutpat in nulla a, vestibulum accumsan tellus. Mauris condimentum ante lorem, sed viverra lacus fringilla sit amet. Pellentesque aliquet mauris at enim mollis pulvinar. Phasellus pulvinar enim nec lorem ultricies cursus. Nulla erat felis, ultrices.</textarea>
+        <p class="lead">
+            Ignore Case Sensitivity
+            <input type="checkbox" id="ignoreCase" name="ignoreCase" class="chkbx" value="true" />
+            <input type="hidden" value="false" name="ignoreCase" />
+        </p>
+        <input type="submit" class="btn  btn-default" value="Process" />
+        }
+
+    </div>
+</div>

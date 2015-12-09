@@ -73,6 +73,12 @@ namespace ParagraphAnalyser.Core
         }
 
     }
+
+    public class AnalyseResultModel
+    {
+        public GroupedFirstCharModel SentenceGroupedData { get; set; }
+        public GroupedFirstCharModel WordGroupedData { get; set; }
+    }
     public class GroupedFirstCharModel
     {
         public List<char> CharsWeCareAbout { get; set; } = new List<char>();

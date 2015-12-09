@@ -1,0 +1,75 @@
+﻿@using ParagraphAnalyser.Core
+@model ParagraphAnalyser.Core.AnalyseResultModel
+
+@{
+    ViewBag.Title = "Results";
+}
+<div class="jumbotron">
+    <h1>Results</h1>
+</div>
+
+<h2>Words</h2>
+<table>
+    <thead>
+        <tr>
+            <td>Letter</td>
+            <td>Quantity</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.WordGroupedData.OrderedMatchingAndNotFound())
+        {
+        <tr>
+            <td>@item.FirstChar</td>
+            <td>@item.Items.Count()</td>
+        </tr>
+        }
+
+        <tr>
+            <td>Total That Match</td>
+            <td>@Model.WordGroupedData.SumOfMatching()</td>
+        </tr>
+        <tr>
+            <td>Total Unique Leading Chars</td>
+            <td>@Model.WordGroupedData.Found().Count()</td>
+        </tr>
+        <tr>
+            <td>Total All Words</td>
+            <td>@Model.WordGroupedData.SumOfFound()</td>
+        </tr>
+
+    </tbody>
+</table>
+
+<h2>Sentences</h2>
+<table>
+    <thead>
+        <tr>
+            <td>Letter</td>
+            <td>Quantity</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.SentenceGroupedData.OrderedMatchingAndNotFound())
+        {
+        <tr>
+            <td>@item.FirstChar</td>
+            <td>@item.Items.Count()</td>
+        </tr>
+        }
+
+        <tr>
+            <td>Total That Match</td>
+            <td>@Model.SentenceGroupedData.SumOfMatching()</td>
+        </tr>
+        <tr>
+            <td>Total Unique Leading Chars</td>
+            <td>@Model.SentenceGroupedData.Found().Count()</td>
+        </tr>
+        <tr>
+            <td>Total All Sentences</td>
+            <td>@Model.SentenceGroupedData.SumOfFound()</td>
+        </tr>
+
+    </tbody>
+</table>
